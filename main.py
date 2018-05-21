@@ -16,11 +16,11 @@ if __name__ == "__main__":
     train_loader, test_loader = get_dataloader(args)
     use_cuda = args.use_cuda
     num_classes = 10
-    dropout_prob = 0.2
+    dropout_prob = 0.1
     #hyper-parameters
 
 #    A,B,C,D,E,r = 32,32,32,32,10,args.r # a classic CapsNet
-    model = CliqueNet(3, num_classes, 5, 40, attention=True, compression=True, dropout_prob=dropout_prob)
+    model = CliqueNet(3, num_classes, 4, 36, attention=True, compression=True, dropout_prob=dropout_prob)
     criterion = CrossEntropyLoss()
     #closs = CrossEntropyLoss()
 
@@ -61,11 +61,11 @@ if __name__ == "__main__":
                 acc = pred.eq(labels).cpu().sum().data.item()
                 correct += acc
                 if b % args.print_freq == 0:                          
-                    print("batch:{}".format(b))
+                    print("batch:{}, lr:{:.4f}".format(b, optimizer.param_groups[0]['lr']))
                     print("total loss: {:.4f},  acc: {:}/{}".format(loss.data.item(), acc, args.batch_size))
             acc = float(correct)/len(train_loader.dataset)
             print("Epoch{} Train acc:{:4}".format(epoch, acc))
-            scheduler.step(acc)
+            scheduler.step()
             #Test
             print('Testing...')
             model.eval()
