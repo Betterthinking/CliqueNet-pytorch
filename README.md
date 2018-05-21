@@ -20,13 +20,14 @@ optional arguments:
   -h, --help            show this help message and exit
   -batch_size BATCH_SIZE
   -num_epochs NUM_EPOCHS
-  -lr LR
-  -clip CLIP
+  -lr LR                Initial learning rate
   -disable_cuda         Disable CUDA
-  -augmentation         apply data augmentation
+  -augmentation         Apply data augmentation
   -print_freq PRINT_FREQ
+                        Log print frequency
   -pretrained PRETRAINED
-  -gpu GPU              which gpu to use
+  -gpu GPU              Which gpu to use
+
 
 ```
 
@@ -34,4 +35,4 @@ you can also modify the hyperparameters in `main.py` to change the net configura
 
 ## Results
 
-We conduct a simple version of experiment, the current result on CIFAR-10 test set is only at most 88.4, there is still a large margin between ours and the paper results. We will try to fix it later.
+We conduct a simple version of experiment, the dropout ratio of our network is 0.1, we train the network for 200 epochs without data augmentation. The current result on CIFAR-10 test set is only at most 88.4, there is still a large margin between ours and the paper results. We will try to fix it later.
