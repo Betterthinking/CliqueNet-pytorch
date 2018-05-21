@@ -35,4 +35,4 @@ you can also modify the hyperparameters in `main.py` to change the net configura
 
 ## Results
 
-We conduct a simple version of experiment, the dropout ratio of our network is 0.1, we train the network for 200 epochs without data augmentation. The current result on CIFAR-10 test set is only at most 88.4, there is still a large margin between ours and the paper results. We will try to fix it later.
+We conduct a simple version of experiment, the dropout ratio of our network is 0.1, we train the network for 200 epochs without data augmentation. The current result on CIFAR-10 test set is only at most 92.23, there is still a large margin between ours and the paper results. We will try to fix it later.
